@@ -1,0 +1,41 @@
+@media screen and (max-width:991px){
+    .separadores {
+        display: none;
+    }
+}
+
+.titulo {
+    padding: 50px 0 20px 0;
+}
+
+.titulo h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.fecha {
+    padding-bottom: 20px;
+}
+
+.enNegrilla {
+    font-weight: bold;
+}
+
+article p {
+    font-size: 20px;
+}
+
+.imagenes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0 30px 0;
+    text-align: left;
+}
+
+.imagenes span {
+    width: 100%;
+    padding: 20px;
+    font-size: 15px;
+}
