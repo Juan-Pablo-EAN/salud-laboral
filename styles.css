@@ -1,3 +1,8 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
 @media screen and (max-width:991px){
     .separadores {
         display: none;
@@ -34,8 +39,34 @@ article p {
     text-align: left;
 }
 
+.imagenes img {
+    width: auto;
+    max-width: 100%;
+}
+
 .imagenes span {
     width: 100%;
     padding: 20px;
     font-size: 15px;
+}
+
+.centrado {
+    text-align: center;
+}
+
+.sinPuntos {
+    list-style: none;
+}
+
+footer {
+    padding: 20px 50px 20px 50px;
+    margin-top: 50px;
+}
+
+.card:hover {
+    background-color: rgba(128, 128, 128, 0.342);
+}
+
+.references {
+    margin: 50px 0;
 }

@@ -559,7 +559,7 @@
                 </div>
                 <div>
                     <p>
-                        El constructo del bienestar se centra el entendimiento de las emociones, encontrar el sentido
+                        El constructor del bienestar se centra el entendimiento de las emociones, encontrar el sentido
                         práctico de la cada decisión que toma el individuo.
                     </p>
                 </div>
@@ -570,11 +570,565 @@
                     </p>
                 </div>
                 <div>
-                    <h2>¿Cómo relacional las teorías de administración con la construcción del bienestar y la trascendencia?</h2>
+                    <h2>¿Cómo relacionar las teorías de administración con la construcción del bienestar y la
+                        trascendencia?</h2>
+                </div>
+                <div>
+                    <p>
+                        Abrahán Maslow (Psicólogo humanista) propuso la teoría que las personas dentro de las
+                        organizaciones son mas productivas cuando encuentran un sentido, un significado, y esto es
+                        provechoso para las organizaciones.
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Ahora, ya hablando no desde el ámbito organizacional se encuentra que la felicidad, esta
+                        construida desde varios factores que son intrínsecos al individuo que al final, cada quien debe
+                        construir, o levar su consciencia hacia algo que sea mayor a solo sus propósitos mas básicos.
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Como se expuso anteriormente. Tanto Maslow, como Saban, como Seligman, describen desde cada uno
+                        de sus postulados que el individuo no es estático, cada quien tiene niveles de crecimiento o la
+                        oportunidad de crecer, desde el yo hacia algo mas elevado.
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Por lo anterior. La teoría clásica de la administración al no tener en cuenta, ese factor de
+                        crecimiento intrínseco del ser, genera que organizaciones en este modelo estén con personas que
+                        no se identifican con sí mismas, y trabajan por obligación en tareas repetitivas, sin
+                        significado, y estar personas al no estar equilibradas o no tener las herramientas para
+                        gestionar sus emociones, descargan su frustración en sus familias, o este esta repetitivo genera
+                        estrés, genera depresión y trastornos mentales.
+                    </p>
+                </div>
+                <div>
+                    <h2>¿Son las afecciones de la salud mental un sistema regulación de la población humana natural?
+                    </h2>
+                </div>
+                <div>
+                    <p>
+                        Para tratar de encontrar esta respuesta, nos apoyaremos en la teoría de la función logística, o
+                        ecuación logística.
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Este modelo se basa en la publicación del matemático Pierre Verhulst de 1838, lo que ahora
+                        conocemos como Crecimiento de una población
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Esta sencilla ecuación <i>dP/dt=rP((k - P)/K)</i>, modela el comportamiento de las poblaciones,
+                        sus
+                        cambios durante el tiempo, como se comportan las iteraciones de la tasa de crecimiento durante
+                        el tiempo. (Bacaer, 2008) donde;
+                    </p>
+                </div>
+                <div>
+                    <ul class="sinPuntos">
+                        <li>
+                        <li><i>r</i> = tasa de crecimiento</li>
+                        <li><i>P</i> = población </li>
+                        <li><i>K</i> = constante de integración </li>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <p>
+                        Lo interesante es la tendencia de bifurcarse, y oscilar entre valores en periodos regulares,
+                        periodos de estabilización y caos. Según el canal de divulgación científica (Veritasium, 2020),
+                        expone la misma ecuación reescrita de la siguiente manera
+                    </p>
+                </div>
+                <div class="centrado">
+                    <ul class="sinPuntos">
+                        <li>
+                            <h2>x_(n-1)=rx (1-x)</h2>
+                        </li>
+                        <li>x_(n-1) es la poblacion de proximo año</li>
+                        <li>x_(n) es la poblacion del año actual</li>
+                        <li>r = Tasa de crecimiento</li>
+                    </ul>
+                </div>
+                <div>
+                    <p>
+                        En ambos casos se tienen, la población inicial, como la tasa de crecimiento, la cual no puede
+                        ser exponencial. En ambos casos hay una restricción del medio que afecta el cremento de la
+                        población.
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Lo interesante es que, en ciertos valores o rangos de valores de r, se llega a un punto de caos
+                        aparente
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Mediante Python, vamos a modelar esta ecuación diferencial para ver como es el comportamiento
+                        cambiando valores de r, y de x0 como población inicial y el número de iteraciones que deseamos
+                        que se repita el ciclo
+                    </p>
+                </div>
+                <div>
+                    <h2>Código en Python 3.10 </h2>
+                </div>
+                <div>
+                    <code>
+                        '''Codigo para modelar el comportamiento de la ecuacion Logística
+El codido tiene unas variables de entrada como
+R = tasa de crecimiento
+x0 = Poblacion Inicial
+n_iter = numerio de veces o periodos que deseamos que se repita la ecuacion
+'''
+<br>
+<br>
+import numpy as np #libreria para calculos numericos <br>
+import matplotlib.pyplot as plt # Libreria para graficar funciones <br>
+<br>
+def funMap(R, xn): #Funcione de la ecuacion base <br>
+  return R*xn*(1-xn) # Retorno de la funion<br>
+  <br>s
+def dibFuncion(R): # Funcion que parametriza el dominio de la funcion base <br>
+  dominio = np.linspace(-0.2, 1.5, 20) # Dominio de la funcion <br>
+  plt.plot(dominio, funMap(R, dominio))# Grafica de la funcion en el dominio<br>
+  plt.title(f"Funcion {R}x(1-x)") # Titlo de la grafica<br>
+  plt.axhline(y=0, color = "k", linestyle = "dashed", alpha = 0.2)<br>
+  plt.axvline(x=0, color = "k", linestyle = "dashed", alpha = 0.3)<br>
+  plt.show()<br>
+  <br>
+def valOrbita(R, x0, n_iters):# Funcion que toma como parametro la funcion base <br>
+    x00 = x0 # Valor inicial de la funcion <br>
+    xs = range(n_iters) # Numero de iteracion que se va repetir la funcion <br>
+    xn = [] # vector donde guardá los valores de cada iteracion<br>
+    for i in xs: # Ciclo de control de repeticion de la funcion<br>
+        xn.append(x0) # guarda los valores en el vector <br>
+        x0 =funMap(R, x0) # Enganche de la funcion base con la nueva funcion <br>
+        <br>
+    plt.plot(xs, xn, "*") #Grafica de la funcion <br>
+    plt.plot(xs, xn)<br>
+    plt.xlabel("Tiempo")<br>
+    plt.ylabel("Poblacion")<br>
+    plt.title(f" R={R} x0 = {x00}")<br>
+    <br>
+    plt.show()<br>
+    <br>
+valOrbita(3.8, 0.1, 100) # Funcion donde se pasan los valores de R, x0, e interaciones <br>
+
+                    </code>
+                </div>
+                <div class="imagenes">
+                    <img class="img-fluid" src="img/grafica.png" alt="Modelo logístico con tasa de crecimiento"
+                        title="Modelo logístico con tasa de crecimiento de 1.5 y población inicial de 0.1">
+                    <span>Modelo logístico con tasa de crecimiento de 1.5 y población inicial de 0.1</span>
+                </div>
+                <div>
+                    <p>
+                        Como se ve en la grafica 6, con estas condiciones el crecimiento de la población crece, hasta un
+                        punto y se estabiliza por las condiciones del medio
+                    </p>
+                </div>
+                <div class="imagenes">
+                    <img class="img-fluid" src="img/grafica2.png" alt="Modelo Logístico con tasa de crecimiento"
+                        title="Modelo Logístico con tasa de crecimiento de 2.8 y población inicial de 0.1">
+                    <span>Modelo Logístico con tasa de crecimiento de 2.8 y población inicial de 0.1</span>
+                </div>
+                <div>
+                    <p>
+                        Se aprecia que, al aumentar la rasa de crecimiento, hay una fluctuación en los primeros
+                        periodos, la población fluctúa entre dos valores (Bifurcación)
+                    </p>
+                </div>
+                <div class="imagenes">
+                    <img class="img-fluid" src="img/grafica3.png" alt="Función logística con tasa de crecimiento"
+                        title="Función logística con tasa de crecimiento de 3.2 y población inicial de 0.1">
+                    <span>Función logística con tasa de crecimiento de 3.2 y población inicial de 0.1</span>
+                </div>
+                <div>
+                    <p>
+                        Se aprecia que la población se estabiliza entre dos valores periódicos
+                    </p>
+                </div>
+                <div class="imagenes">
+                    <img class="img-fluid" src="img/grafica4.png"
+                        alt="Función logística con tasa de crecimiento de 3.9 y población inicial de 0.1"
+                        title="Función logística con tasa de crecimiento de 3.9 y población inicial de 0.1">
+                    <span>Función logística con tasa de crecimiento de 3.9 y población inicial de 0.1</span>
+                </div>
+                <div>
+                    <p>
+                        Como vemos el modelo, cuando se llegan valores superiores de r > 3.7, como se llega al caos, ya
+                        no hay un patrón regular.
+                    </p>
+                </div>
+                <div>
+                    <h2>¿Hay alguna manera de comparar los datos teóricos de la ecuación logística?</h2>
+                </div>
+                <div>
+                    <p>
+                        Con base en el argumento teórico anterior, se tomaron los datos de la población mundial
+                        desde1960 hasta 2020. Tomados datos población mundial de (Banco Mundial org, 2022) y se
+                        realizaron analizaron los datos para determinar si la tasa de crecimiento de la población
+                        mundial crece, decrece, se mantiene estable.
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Para este propósito tomamos el modelo matemático ΔP/Δt=B-A
+                    </p>
+                </div>
+                <div>
+                    <ul class="sinPuntos">
+                        <li>Donde ∆P = a la diferencia de la poblacion</li>
+                        <li>Donde ∆t = a la diferencia e un espacio de tiempo</li>
+                        <li>A = Población inicial</li>
+                        <li>B = Población final</li>
+                    </ul>
+                </div>
+                <div>
+                    <p>
+                        Entonces se toma el valor del cambio de la población con respecto del al año anterior, y la
+                        diferencia es el crecimiento de la población en ese lapso de tiempo.
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Luego, ese valor se divide en el valor de B, se obtiene el % de cambio de la población (tasa de
+                        crecimiento)
+                    </p>
+                </div>
+                <div class="imagenes">
+                    <img class="img-fluid" src="img/grafica5.png"
+                        alt="Crecimiento de la población versus Tasa de crecimiento"
+                        title="Crecimiento de la población versus Tasa de crecimiento población Colombia entre 1960 y 2020">
+                    <span>Crecimiento de la población versus Tasa de crecimiento población Colombia entre 1960 y
+                        2020</span>
+                </div>
+                <div>
+                    <p>
+                        Como se aprecia en la gráfica 10, la población de Colombia, ha tenido un crecimiento sostenido
+                        desde 1960, el valor de crecimiento de cada año esta representado en la barra azul sobre cada
+                        año, (eje x)
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Inicial en 1960 en 17 millones de habitantes, y termina en 50 millones de habitantes en 2020,
+                        (eje y de la izquierda)
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Por otra parte, la línea de color naranja (tasa de crecimiento), inicia en 1960 en 3.2% y
+                        termina en 2020 en 1.07% (eje y de la derecha)
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Donde se evidencia, en el análisis de la gráfica que, si bien la población ha crecido, 2.94
+                        veces. La tasa de crecimiento ha decrecido 2.99 veces.
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Ahora, la población mundial, se somete a el mismo tratamiento de da datos con los siguientes
+                        resultados.
+                    </p>
+                </div>
+                <div class="imagenes">
+                    <img class="img-fluid" src="img/grafica6.png"
+                        alt="10 Crecimiento de la población versus Tasa de crecimiento población Mundial entre 1960 y 2020"
+                        title="10 Crecimiento de la población versus Tasa de crecimiento población Mundial entre 1960 y 2020">
+                    <span>Crecimiento de la población versus Tasa de crecimiento población Mundial entre 1960 y
+                        2020</span>
+                </div>
+                <div>
+                    <p>
+                        Aquí vemos el mismo comportamiento, la población mundial ha crecido, de alrededor de 3 mil
+                        millones en 1960 a alrededor de 9 mil millones en 2020. Es decir que la población mundial a
+                        crecido tres veces, 60 años.
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Pero la tasa de crecimiento a decrecido de 2.2% en 1692 a 0.97% en 2020, es decir ha decrecido
+                        2.26 veces en 60 años.
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Por lo que se aprecia en los dos casos, Colombia y Población mundial, un comportamiento similar.
+                        La población crece, pero la tasa de cremento decrece en la misma proporción.
+                    </p>
+                </div>
+                <div>
+                    <h2>¿Qué pasa si modelamos los datos que ya conocemos de la población mundial, en el modelo
+                        diferencia?</h2>
+                </div>
+                <div class="imagenes">
+                    <img class="img-fluid" src="img/grafica7.png"
+                        alt="modelo diferencial con los datos iniciales reales de la población mundial"
+                        title="modelo diferencial con los datos iniciales reales de la población mundial">
+                    <span>modelo diferencial con los datos iniciales reales de la población mundial</span>
+                </div>
+                <div>
+                    <p>
+                        Como vemos en la ilustración 12, con una tasa de crecimiento de 2.2%, la población hubiera
+                        tenido un crecimiento muy rápido, en los próximos 5 años, pero se hubiera estabilizado de manera
+                        drástica y llegaría a un valor de convergencia.
+                    </p>
+                </div>
+                <div class="imagenes">
+                    <img class="img-fluid" src="img/grafica8.png"
+                        alt="Modelo diferencial con los valores iniciales de la población de Colombia"
+                        title="Modelo diferencial con los valores iniciales de la población de Colombia">
+                    <span>Modelo diferencial con los valores iniciales de la población de Colombia</span>
+                </div>
+                <div>
+                    <p>
+                        Por otra parte, el modelo diferencial, con los datos iniciales de Colombia nos daría un
+                        crecimiento muy rápido en los próximos, pero entraría a ocular entre dos valores, arcanos al
+                        caos.
+                    </p>
+                </div>
+                <div>
+                    <p>Por lo anterior: podríamos inferir que:</p>
+                </div>
+                <div>
+                    <ol>
+                        <li>Para el caso de la población mundial. Si la tasa de crecimiento inicial (2.2%), se
+                            hubiera mantenido, la regulación del sistema hubiera crecido y frenado de manera abrupta muy
+                            rápido, de acuerdo a la modelación de los datos de la ecuación logística</li>
+                        <li>Para el caso de Colombia. La población hubiera entrado en una fluctuación constante de
+                            crecimiento y decrecimiento, de forma muy rápida.</li>
+                        <li>
+                            El sistema se regula de manera natural, es decir, el crecimiento de la población no tiene
+                            una curva tan pronunciada, porque la tasa de crecimiento decrece en la misma proporción.
+                        </li>
+                    </ol>
+                </div>
+                <div>
+                    <h2>Conclusiones</h2>
+                </div>
+                <div>
+                    <p>
+                        De acuerdo a los puntos expuestos en el presente trabajo. Hemos discurrido desde la evolución de
+                        la sociedad, desde el cambio de un modelo de producción manual a uno mecanizado hasta llegar a
+                        un sistema de producción mecanizado
+                    </p>
+                </div>
+                <div>
+                    <p>Esto inicialmente genero una “división de clases” por la teoría de la explotación de las masas.
+                    </p>
+                </div>
+                <div>
+                    <p>Ahora los modelos de administración son mas humanos, las condiciones laborales no son tan
+                        brutales como en el inicio de la revolución industrial.</p>
+                </div>
+                <div>
+                    <p>
+                        Desde el ámbito organizacional empresarial son más conscientes del bienestar de los
+                        colaboradores.
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Las afecciones mentales como el estrés, la depresión como la desmotivación es un factor de
+                        riesgo que esta tomando cada vez mas fuerza en el sector laboral.
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Por fuera de las organizaciones también hay un aumento de las afecciones mentales.
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Por lo que la pregunta es ¿Son las afecciones mentales causa de las condiciones laborales?
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        O ¿las afecciones en la salud mental en la sociedad están afectando las que afectan a las
+                        organizaciones?
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Como vimos en las teorías de bienestar como constructo y de el equilibro entre las dimensiones
+                        del ser. Se podría pensar que es el entorno el que esta afectando las organizaciones
+                        empresariales.
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Por último, como vimos en el modelo matemático de ecuación logística, será que ¿estos tiempos de
+                        caos, obedecen a una respuesta matemática donde la tasa de crecimiento esta en un punto donde se
+                        esta regulando de forma natural la población mundial?
+                    </p>
+                </div>
+                <div class="references">
+                    <h2>Referencias</h2>
+                </div>
+                <div>
+                    <div class="row" style="justify-content: center; gap: 10px;">
+                        <div class="card border-info" style="width: 17rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Verhulst y la ecuación logística en la dinámica de la población
+                                </h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Bacaer, N. (2008)</h6>
+                                <p class="card-text">European Communications in Mathematical and Theoretical Biology ,
+                                    24-26</p>
+                            </div>
+                        </div>
+                        <div class="card border-info" style="width: 17rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Banco Mundial</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Banco Mundial org. (02 de febrero de 2022)
+                                </h6>
+                                <a href="https://datos.bancomundial.org/indicator/SP.POP.TOTL?end=2020&locations=CO&start=1960&view=chart"
+                                    target="_blank" class="card-link">Visitar enlace</a>
+                            </div>
+                        </div>
+                        <div class="card border-info" style="width: 17rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Comportamiento Organizacional La Dinámica en las Organizaciones
+                                    Segunda Edición. Mexico DF</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">CHIAVENATO, I. (2009)</h6>
+                                <p class="card-text">McGRAW-HILL/INTERAMERICANA EDITORES, S.A. de C.V</p>
+                            </div>
+                        </div>
+                        <div class="card border-info" style="width: 17rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">LEY NÚMERO 100</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">CONGRESO DE LA REPUBLICA DE COLOMBIA (23 de
+                                    Diciembre de 1993)</h6>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/DIJ/ley-100-de-1993.pdf"
+                                    target="_blank" class="card-link">Visitar enlace</a>
+                            </div>
+                        </div>
+                        <div class="card border-info" style="width: 17rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">HISTORIA DE LA INGENIERÍA DE MÉTODOS</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Esacarrega, V. M. (09 de Septiembre de 2019)
+                                </h6>
+                                <p class="card-text">Obtenido de EDUCATIVO INGENIERÍA EN SISTEMAS DE CALIDAD, UAIM</p>
+                                <a href="https://youtu.be/uACds4Q0J_w" target="_blank" class="card-link">Visitar
+                                    enlace</a>
+                            </div>
+                        </div>
+                        <div class="card border-info" style="width: 17rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Esta eduación cambiará tu modo de ver el mundo</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Español, V. e. (31 de Enero de 2020)</h6>
+                                <a href="https://youtu.be/EOvLhZPevm0" target="_blank" class="card-link">Visitar
+                                    enlace</a>
+                            </div>
+                        </div>
+                        <div class="card border-info" style="width: 17rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Crisis económica, políticas, desempleo y salud (mental)</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Granado, A. E. (2014)</h6>
+                                <p class="card-text">Rev. Asoc. Esp. Neuropsiq, 385-404</p>
+                            </div>
+                        </div>
+                        <div class="card border-info" style="width: 17rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Resolucion 2404</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Ministerio Del Trabajo (22 de Julio de 2019)
+                                </h6>
+                                <p class="card-text">Obtenido de www.mintrabajo.gov.co</p>
+                                <a href="https://www.mintrabajo.gov.co/documents/20147/59995826/Resolucion+2404+de+2019-+Adopcion+bateria+riesgo+psicosocial%2C+guia+y+protocolos.pdf"
+                                    class="card-link" target="_blank">Visitar enlace</a>
+                            </div>
+                        </div>
+                        <div class="card border-info" style="width: 17rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">La salud mental: una mirada desde su evolución en la normatividad
+                                    colombiana. 1960 a 2012</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Nelson Ardón Centeno, A. C.-N. (14 de
+                                    Diciembre de 2012)</h6>
+                                <p class="card-text">Obtenido de www.revistas.javeriana.edu.co</p>
+                                <a href="https://revistas.javeriana.edu.co/index.php/gerepolsal/article/view/4456?locale=pt_BR"
+                                    class="card-link" target="_blank">Visitar enlace</a>
+                            </div>
+                        </div>
+                        <div class="card border-info" style="width: 17rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Consecuencias económicas y sociales de la cuarta revolucion
+                                    industrial y estrategias pensadas para la adaptacion de la actividad económica</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Prado, R. V. (2019)</h6>
+                                <p class="card-text">Barcelona: Mag. Sociedad de la Información y el Conocimiento.</p>
+                            </div>
+                        </div>
+                        <div class="card border-info" style="width: 17rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Un estudio comparativo sobre el concepto de "Felicidad" Entre la
+                                    Psicología Positiva del Dr Martin Seligman y el Misticismo Judio</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Saban, M. J. (2014)</h6>
+                                <p class="card-text">Madrid: Universidad Complutense de Madrid</p>
+                            </div>
+                        </div>
+                        <div class="card border-info" style="width: 17rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">CÁBALA PSICOLÓGICA</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Saban, M. J. (26 de Diciembre de 2020)</h6>
+                                <p class="card-text">(P. y. Esperitualidad, Entrevistador)</p>
+                            </div>
+                        </div>
+                        <div class="card border-info" style="width: 17rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Florecer La Nueva Psicología Postiva y la Búsqueda del Bienestar
+                                </h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Seligman, M. E. (2014)</h6>
+                                <p class="card-text">Mexico: Oceano</p>
+                            </div>
+                        </div>
+                        <div class="card border-info" style="width: 17rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Esta eduación cambiará tu modo de ver el mundo</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Veritasium. (31 de Enero de 2020)</h6>
+                                <p class="card-text">Obtenido de Veritasium en español</p>
+                                <a href="https://youtu.be/EOvLhZPevm0" target="_blank" class="card-link">Visitar
+                                    enlace</a>
+                            </div>
+                        </div>
+                        <div class="card border-info" style="width: 17rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">INCIDENCIA Y PREVALENCIA DE PRODUCCIÓN DE UNA MYPE</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Yoselin, A. C. (2018)</h6>
+                                <p class="card-text">Lima Peru: Universidad Privada Del Norte</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </div>
     </section>
+    <div>
+        <footer class="text-white bg-dark d-flex flex-wrap justify-content-between align-items-center border-top">
+            <p class="col-md-4 mb-0 text-muted">Entorno global, ética y sociedad</p>
+
+            <a href="/"
+                class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <img src="img/logoEAN.png" alt="Logo Universidad EANs" width="80">
+            </a>
+
+            <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Paula</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Francisco</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Saul</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Ricardo</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Juan Pablo</a></li>
+            </ul>
+        </footer>
+    </div>
 </body>
 
 </html>
